@@ -1,7 +1,7 @@
 # MageHero - mageHero
 # mage_hero
 class Hero:
-    # конструктор класа NameClass()
+    # конструктор класса NameClass()
     def __init__(self, name, lvl, hp):
         # Атрибуты экземпляра+|+объекта класса
         self.hero_name = name
