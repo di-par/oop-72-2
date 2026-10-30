@@ -2,5 +2,5 @@
 .venv
 venv
 __pycache__
-main.py
-GitHelpMy.txt
+.main.py
+.GitHelpMy.txt
