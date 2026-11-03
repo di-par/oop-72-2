@@ -2,11 +2,75 @@
 1) git config --global user.name "your_username"
 2) git config --global user.email "your_username@gmai.com"
 
-Команды только для одного проекта
+Команды только для одно проекта
 3) git init        | Инициализация Гита
 4) git remote add origin link_to_repository | Добавление репозитория
 
 5) git status      | Статус репозитория
 6) git add .       | Добавление файлов в буфер обмена
 7) git commit -m "message" | сохранение всего из буфера обмена
-8) git push origin master  | Отправка изменений в репозитории
+8) git push origin master   | Отправка изменений в репозитории
+9) git branch branch_name   | Создание новой ветки
+10) git branch               | Для просмотра веток
+11) git switch -c branch_name | для создания и перехода на новую ветку
+12) git restore       | Вернуть файлы в исходное состояние
+13) git reset         | Вернуть файлы в исходное состояние после git add .
+
+Команды для работы с коммитами
+
+1. Просмотр истории
+Команда	Описание
+git log	Полная история коммитов
+git log --oneline	Краткая история коммитов
+git log --oneline -5	Последние 5 коммитов
+git reflog	История перемещения HEAD, помогает восстановить потерянные коммиты
+
+2. git reset — откат коммитов
+Команда	Описание
+git reset --soft HEAD~1	Удаляет последний коммит, изменения остаются в Staged
+git reset --mixed HEAD~1	Удаляет последний коммит, изменения остаются в файлах, но не в Staged
+git reset --hard HEAD~1	Удаляет последний коммит и изменения из рабочей директории
+git reset --hard HEAD~2	Откат на два коммита назад
+git reset --hard <hash>	Откат к конкретному коммиту
+
+3. git revert — безопасная отмена коммитов
+Команда	Описание
+git revert HEAD	Отменяет последний коммит новым коммитом
+git revert <hash>	Отменяет конкретный коммит
+git revert HEAD~3..HEAD	Отменяет последние три коммита
+
+Важно: revert не удаляет старые коммиты из истории, а создаёт новые отменяющие коммиты.
+4. git checkout / git switch — переключение
+Команда	Описание
+git checkout <hash>	Переход к конкретному коммиту
+git checkout main	Переход на ветку main
+git switch main	Современная команда переключения на ветку
+git switch --detach <hash>	Просмотр конкретного коммита без переключения на ветку
+
+5. git restore — восстановление файлов
+Команда	Описание
+git restore file.py	Отменяет незакоммиченные изменения файла
+git restore --staged file.py	Убирает файл из Staged, сохраняя изменения
+git restore --source=<hash> file.py	Восстанавливает файл из конкретного коммита
+
+
+production
+
+release/1.0.2
+
+test\stage
+
+develop
+
+feat/bonus
+fix/
+
+-m "feat: added bonus  #plan-707 link"
+-m "fix: fixed bonus #708"
+-m "hot-fix: fixed bonus #708"
+-m "update: updated bonus #709"
+
+
+
+main
+stage\dev
