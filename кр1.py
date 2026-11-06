@@ -1,12 +1,9 @@
-from abc import ABC, abstractmethod
-
-class Hero(ABC):
+class Hero:
     def __init__(self, name, lvl, hp):
         self.name = name
         self.lvl = lvl
         self.hp = hp
 
-    @abstractmethod
     def action(self):
         print(f"{self.name} готов к бою!")
 
